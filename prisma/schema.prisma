@@ -34,3 +34,9 @@ model Finalizacao {
 
   @@map("finalizacao")
 }
+
+model Servico {
+  id         String   @id @default(uuid())
+  atividade  String
+  created_at DateTime @default(now())
+}
