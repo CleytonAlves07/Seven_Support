@@ -8,10 +8,17 @@ datasource db {
 }
 
 model Tecnico {
-  id   String @id @default(uuid())
-  nome String
+  id         String   @id @default(uuid())
+  nome       String
+  created_at DateTime @default(now())
 
   @@map("tecnicos")
 }
 
-// Incluir tabela clientes
+model Cliente {
+  id         String   @id @default(uuid())
+  nome       String
+  empresa    String
+  telefone   String
+  created_at DateTime @default(now())
+}
