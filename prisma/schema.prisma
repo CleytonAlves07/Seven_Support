@@ -21,4 +21,16 @@ model Cliente {
   empresa    String
   telefone   String
   created_at DateTime @default(now())
+
+  @@map("clientes")
+}
+
+model Finalizacao {
+  id           String   @id @default(uuid())
+  valor_total  Decimal
+  data_entrada DateTime
+  data_entrega DateTime
+  created_at   DateTime @default(now())
+
+  @@map("finalizacao")
 }
