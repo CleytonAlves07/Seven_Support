@@ -11,6 +11,7 @@ model Tecnico {
   id         String   @id @default(uuid())
   nome       String
   created_at DateTime @default(now())
+  Ordem      Ordem[]
 
   @@map("tecnicos")
 }
@@ -21,6 +22,7 @@ model Cliente {
   empresa    String
   telefone   String
   created_at DateTime @default(now())
+  Ordem      Ordem[]
 
   @@map("clientes")
 }
@@ -31,23 +33,43 @@ model Finalizacao {
   data_entrada DateTime
   data_entrega DateTime
   created_at   DateTime @default(now())
+  Ordem        Ordem[]
 
   @@map("finalizacao")
 }
 
 model Servico {
-  id         String   @id @default(uuid())
-  atividade  String
-  created_at DateTime @default(now())
+  id           String         @id @default(uuid())
+  atividade    String
+  created_at   DateTime       @default(now())
+  OrdemServico OrdemServico[]
 
   @@map("serviços")
 }
 
 model Ordem {
-  id          String   @id @default(uuid())
-  data        DateTime
-  equipamento String
-  defeito     String
+  id             String         @id @default(uuid())
+  data           DateTime
+  equipamento    String
+  defeito        String
+  id_tecnico     String
+  tecnico        Tecnico        @relation(fields: [id_tecnico], references: [id])
+  id_cliente     String
+  cliente        Cliente        @relation(fields: [id_cliente], references: [id])
+  id_finalizacao String
+  finalizacao    Finalizacao    @relation(fields: [id_finalizacao], references: [id])
+  OrdemServico   OrdemServico[]
 
   @@map("ordens")
+}
+
+model OrdemServico {
+  id_ordem    String
+  ordem       Ordem    @relation(fields: [id_ordem], references: [id])
+  id_servico  String
+  servico     Servico  @relation(fields: [id_servico], references: [id])
+  assigned_at DateTime @default(now())
+  assigned_by String
+
+  @@id([id_ordem, id_servico])
 }
