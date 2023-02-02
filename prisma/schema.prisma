@@ -19,6 +19,7 @@ model Tecnico {
 model Cliente {
   id         String   @id @default(uuid())
   nome       String
+  email      String   @unique
   empresa    String
   telefone   String
   created_at DateTime @default(now())
