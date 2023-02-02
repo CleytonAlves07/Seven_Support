@@ -28,12 +28,12 @@ model Cliente {
 }
 
 model Finalizacao {
-  id           String   @id @default(uuid())
-  valor_total  Decimal
-  data_entrada DateTime
-  data_entrega DateTime
-  created_at   DateTime @default(now())
-  Ordem        Ordem[]
+  id              String    @id @default(uuid())
+  valor_total     Decimal
+  data_entrada    DateTime
+  data_finalizado DateTime?
+  created_at      DateTime  @default(now())
+  Ordem           Ordem[]
 
   @@map("finalizacao")
 }
