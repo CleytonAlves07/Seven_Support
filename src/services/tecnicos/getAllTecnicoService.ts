@@ -1,5 +1,5 @@
 import { Tecnico } from '@prisma/client';
-import { prisma } from '../database/prismaClient';
+import { prisma } from '../../database/prismaClient';
 
 export class GetAllTecnicosService {
   async getAllTecnicos(): Promise<Tecnico[]> {

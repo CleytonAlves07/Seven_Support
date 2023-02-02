@@ -1,11 +1,11 @@
 import { Request, response, Response} from 'express'
-import { prismaClient } from '../database/prismaClient'
+import { prisma } from '../../database/prismaClient'
 
 export class CreateTecnicoController {
   async handle(req: Request, res: Response) {
     const { nome } = req.body
 
-    const tecnico = await prismaClient.tecnico.create({
+    const tecnico = await prisma.tecnico.create({
       data: {
         nome
       }

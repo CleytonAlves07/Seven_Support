@@ -1,5 +1,5 @@
 import { Request, Response} from 'express';
-import { GetAllTecnicosService } from '../services/getAllTecnicoService';
+import { GetAllTecnicosService } from '../../services/tecnicos/getAllTecnicoService';
 import status  from "http-status"
 
 

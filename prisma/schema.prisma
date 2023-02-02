@@ -60,9 +60,6 @@ model Ordem {
   id_finalizacao String
   finalizacao    Finalizacao    @relation(fields: [id_finalizacao], references: [id])
   OrdemServico   OrdemServico[]
-  Tecnico        Tecnico?       @relation(fields: [tecnicoId], references: [id])
-  tecnicoId      String?
-  Tecnico        Tecnico?       @relation(fields: [tecnicoId], references: [id])
 
   @@map("ordens")
 }
