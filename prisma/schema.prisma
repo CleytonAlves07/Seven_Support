@@ -9,7 +9,7 @@ datasource db {
 
 model Tecnico {
   id         String   @id @default(uuid())
-  nome       String
+  nome       String   @unique
   created_at DateTime @default(now())
   Ordem      Ordem[]
 

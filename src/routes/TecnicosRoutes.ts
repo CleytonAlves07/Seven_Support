@@ -9,7 +9,7 @@ const createTecnico = new CreateTecnicoController()
 const getAllTecnicos = new GetAllTecnicosController()
 
 TecnicoRouter.get('/', getAllTecnicos.getAllTecnicos)
-TecnicoRouter.post('/', createTecnico.handle)
+TecnicoRouter.post('/', createTecnico.createTecnico)
 
 
 export { TecnicoRouter }

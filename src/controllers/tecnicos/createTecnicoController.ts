@@ -1,15 +1,15 @@
-import { Request, response, Response} from 'express'
-import { prisma } from '../../database/prismaClient'
+import { Request, Response} from 'express'
+import { CreateTecnicoService } from '../../services/tecnicos/createTecnicoService'
+import status  from "http-status"
 
+const createTecnicoService = new CreateTecnicoService()
 export class CreateTecnicoController {
-  async handle(req: Request, res: Response) {
+  async createTecnico(req: Request, res: Response): Promise<Response> {
     const { nome } = req.body
 
-    const tecnico = await prisma.tecnico.create({
-      data: {
-        nome
-      }
-    })
-    return res.status(201).json(tecnico)
+    const tecnico = await createTecnicoService.createTecnico(nome)
+
+    
+    return res.status(status.CREATED).json(tecnico)
   }
 }
