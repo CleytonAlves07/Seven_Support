@@ -1,5 +1,6 @@
 import express from 'express'
 import 'express-async-errors'
+import 'dotenv/config'
 import { ClienteRouter } from './routes/ClientesRoutes'
 import { TecnicoRouter } from './routes/TecnicosRoutes'
 
@@ -11,5 +12,6 @@ app.use('/cliente', ClienteRouter)
 
 app.use('/tecnico', TecnicoRouter)
 
-app.listen(7777, () => console.log("Serveris running on port 7777")
+const PORT = process.env.PORT ?? 7777
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`)
 )
