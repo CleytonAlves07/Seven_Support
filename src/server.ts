@@ -1,12 +1,15 @@
 import express from 'express'
 import 'express-async-errors'
 import 'dotenv/config'
+import cors from 'cors'
+
 import { ClienteRouter } from './routes/ClientesRoutes'
 import { TecnicoRouter } from './routes/TecnicosRoutes'
 
 const app = express()
 
 app.use(express.json())
+app.use(cors())
 
 app.use('/cliente', ClienteRouter)
 
