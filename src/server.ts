@@ -4,8 +4,9 @@ import 'dotenv/config'
 import cors from 'cors'
 import helmet from 'helmet'
 
-import { ClienteRouter } from './routes/ClientesRoutes'
-import { TecnicoRouter } from './routes/TecnicosRoutes'
+import { clienteRouter } from './routes/ClientesRoutes'
+import { tecnicoRouter } from './routes/TecnicosRoutes'
+import { servicoRouter } from './routes/ServicoRoutes'
 import errorHandler from './middleware/ErrorHandler'
 
 const app = express()
@@ -14,9 +15,11 @@ app.use(express.json())
 app.use(cors())
 app.use(helmet())
 
-app.use('/cliente', ClienteRouter)
+app.use('/cliente', clienteRouter)
 
-app.use('/tecnico', TecnicoRouter)
+app.use('/tecnico', tecnicoRouter)
+
+app.use('/servico', servicoRouter)
 
 app.use(errorHandler)
 

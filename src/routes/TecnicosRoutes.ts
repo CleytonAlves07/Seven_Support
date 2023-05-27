@@ -3,13 +3,13 @@ import { CreateTecnicoController } from '../controllers/tecnicos/createTecnicoCo
 import { GetAllTecnicosController } from '../controllers/tecnicos/getAllTecnicosController';
 
 
-const TecnicoRouter = Router()
+const tecnicoRouter = Router()
 
 const createTecnico = new CreateTecnicoController()
 const getAllTecnicos = new GetAllTecnicosController()
 
-TecnicoRouter.get('/', getAllTecnicos.getAllTecnicos)
-TecnicoRouter.post('/', createTecnico.createTecnico)
+tecnicoRouter.get('/', getAllTecnicos.getAllTecnicos)
+tecnicoRouter.post('/', createTecnico.createTecnico)
 
 
-export { TecnicoRouter }
+export { tecnicoRouter }

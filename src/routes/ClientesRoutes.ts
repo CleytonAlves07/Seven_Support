@@ -3,14 +3,14 @@ import { CreateClienteController } from '../controllers/clientes/createClienteCo
 import { GetAllClientesController } from '../controllers/clientes/getAllClientesController';
 
 
-const ClienteRouter = Router()
+const clienteRouter = Router()
 
 const getAllClientes = new GetAllClientesController()
 const createCliente = new CreateClienteController()
 
-ClienteRouter.get('/', getAllClientes.getAllClientes)
-ClienteRouter.post('/', createCliente.createCliente )
+clienteRouter.get('/', getAllClientes.getAllClientes)
+clienteRouter.post('/', createCliente.createCliente )
 
 
 
-export { ClienteRouter }
+export { clienteRouter }

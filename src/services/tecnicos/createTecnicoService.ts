@@ -6,7 +6,7 @@ import status  from "http-status"
 
 export class CreateTecnicoService {
   async createTecnico(nome: string): Promise<Tecnico> {
-    if ((nome).length === 0 || typeof(nome) !== 'string') {
+    if ((nome).length <= 3 || typeof(nome) !== 'string') {
       throw new HttpException(status.BAD_REQUEST, 'Insira um nome válido')
     }
     const nameExist = await prisma.tecnico.findFirst({where: {nome}})

@@ -6,8 +6,8 @@ import status  from "http-status"
 
 export class CreateClienteService {
   async createCliente(nome: string, email: string, empresa: string, telefone: string): Promise<Cliente> {
-    const emailRegex = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.[a-z]?$/i
-    const emailExist = await prisma.cliente.findUnique({where: {email: email}})
+    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
+    const emailExist = await prisma.cliente.findUnique({ where: { email: email } })
     const validEmail = emailRegex.test(email)
     if (!validEmail) {
       throw new HttpException(status.BAD_REQUEST, 'Insira um email válido')
